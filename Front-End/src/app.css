@@ -4,6 +4,14 @@
     --black-color:#000000;
 }
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  
+}
 
 /* theme dark   */
 
@@ -17,13 +25,16 @@
   .text-black{
     color: black;
   }
+  .text-black:hover{
+    border-bottom: 1px solid black !important;
+  }
   .text-light-black{
     color: #262626;
   }
   
 
   .text-dark-primary{
-    color: #d8d8d8 !important;
+    color: rgba(104, 85, 224, 1) !important;
   }
   
   /* theme light  */

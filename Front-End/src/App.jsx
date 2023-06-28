@@ -2,6 +2,7 @@ import {BrowserRouter as Router,Route,Routes, BrowserRouter} from "react-router-
 import "./app.css"
 import Header from "./common/Header/Header"
 import Footer from "./common/Footer/Footer"
+import Home from "./pages/Home/Home"
 function App() {
   
 
@@ -10,7 +11,7 @@ function App() {
     <Router>
     <Header/>
         <Routes>
-          <Route></Route>
+          <Route path="/" element={<Home/>}></Route>
 
         </Routes>
 
