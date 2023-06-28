@@ -28,6 +28,9 @@ body{
   .text-black:hover{
     border-bottom: 1px solid black !important;
   }
+  .text-dark{
+    color: black;
+  }
   .text-light-black{
     color: #262626;
   }

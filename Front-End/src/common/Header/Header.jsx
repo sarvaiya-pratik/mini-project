@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
 import "./style.css"
-import { ThemeContext } from '../../Components/ThemeProvide'
-import { BiMoon, BiSun } from "react-icons/bi"
-import { Navbar, Nav, Container, Button } from "react-bootstrap"
-import {LinkContainer} from "react-router-bootstrap"
+import { ThemeContext } from '../../Global-Component/ThemeProvide'
+import { BiMoon, BiSun ,BiMenu} from "react-icons/bi"
+import { Navbar, Nav } from "react-bootstrap"
+import { LinkContainer } from "react-router-bootstrap"
 
 
 const Header = () => {
@@ -12,53 +11,75 @@ const Header = () => {
   const { theme, setThemeMode } = useContext(ThemeContext);
   const [darkMod, setDarkMod] = useState(theme)
 
+  const [menu,setMenu] = useState(false)
+console.log(menu)
   useEffect(() => {
     setThemeMode(darkMod);
   })
   return (
     <>
-      <Navbar variant={darkMod?"dark":"light"} bg={darkMod?"dark":"light"}>
-        <div className="container w-30">
-          <div className='nav'>
-
-          <Navbar.Brand href="#home">Mini Proj</Navbar.Brand>
+      <Navbar variant={darkMod ? "dark" : "light"} bg={darkMod ? "dark" : "light"}>
+        <div className="container">
+          <div className='nav-head'>
+            <Navbar.Brand href="#home">Mini Project</Navbar.Brand>
           </div>
-          <div className="nav w-30">
-            
-              <LinkContainer to="/">
-                <Nav.Link  className={!darkMod && "text-black"}>Home</Nav.Link> 
-              </LinkContainer>
-            
-            
-              <LinkContainer to="/about">
-                <Nav.Link className={!darkMod && "text-black"}>About</Nav.Link> 
-              </LinkContainer>
 
-              <LinkContainer to="/fature">
-                <Nav.Link className={!darkMod && "text-black"}>Fature</Nav.Link> 
-              </LinkContainer>
-
+          <div className="mobile-nav">
+            <div onClick={() => setDarkMod(!darkMod)} style={{ cursor: "pointer" }}>
+              {darkMod ? <BiSun fontSize={"2rem"} /> : <BiMoon fontSize={"2rem"} style={{ color: "Black" }} />}
+            </div>
+            <div className={`${!darkMod && "text-dark"}`}><BiMenu fontSize={'2rem'} onClick={()=>setMenu(!menu)}/></div>
           </div>
-          <div className='nav w-30 gap-3'>
-              <LinkContainer to="/login">
-                <Nav.Link className={!darkMod && "text-black"}>Login</Nav.Link> 
-                 
-              </LinkContainer>
-              <LinkContainer to="/signup" className=''>
-                <Nav.Link className={!darkMod && "text-black"}>Sign Up</Nav.Link> 
-                  
-              </LinkContainer>
 
-              <div onClick={() => setDarkMod(!darkMod)} style={{ cursor: "pointer" }}>
-          {darkMod ? <BiSun fontSize={"2rem"} /> : <BiMoon fontSize={"2rem"} style={{color:"Black"}}/>}
-        </div>
+
+          <div className="nav">
+            <LinkContainer to="/">
+              <Nav.Link className={!darkMod && "text-black"}>Home</Nav.Link>
+            </LinkContainer>
+            <Nav.Link className={!darkMod && "text-black"}>About</Nav.Link>
+            <Nav.Link className={!darkMod && "text-black"}>Fature</Nav.Link>
           </div>
+
+          <div className='nav gap-3'>
+            <LinkContainer to="/login">
+              <Nav.Link className={!darkMod && "text-black"}>Login</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/signup" className=''>
+              <Nav.Link className={!darkMod && "text-black"}>Sign Up</Nav.Link>
+            </LinkContainer>
+            <div onClick={() => setDarkMod(!darkMod)} style={{ cursor: "pointer" }}>
+              {darkMod ? <BiSun fontSize={"2rem"} /> : <BiMoon fontSize={"2rem"} style={{ color: "Black" }} />}
+            </div>
+          </div>
+
         </div>
       </Navbar>
 
+      <div className={`sidebar ${menu && "show-sidebar"} ${darkMod?"bg-black text-light":"bg-light-2 text-dark"}`}>
+      <div className="nav">
 
-      
-       
+            <LinkContainer to="/">
+              <Nav.Link className={!darkMod && "text-black"}>Home</Nav.Link>
+            </LinkContainer>
+            <Nav.Link className={!darkMod && "text-black"}>About</Nav.Link>
+            <Nav.Link className={!darkMod && "text-black"}>Fature</Nav.Link>
+          </div>
+
+          <div className='nav gap-3'>
+            <LinkContainer to="/login">
+              <Nav.Link className={!darkMod && "text-black"}>Login</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/signup" className=''>
+              <Nav.Link className={!darkMod && "text-black"}>Sign Up</Nav.Link>
+            </LinkContainer>
+           
+          </div>
+
+      </div>
+
+
+
+
     </>
   )
 }
