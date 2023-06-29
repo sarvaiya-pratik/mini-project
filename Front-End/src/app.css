@@ -2,7 +2,8 @@
     --primary-color : #b34141;
     --secondary-color:#fff;
     --black-color:#000000;
-}
+    --bg-primary:goldenrod;
+    } 
 
 *{
   margin: 0;
@@ -42,6 +43,15 @@ body{
   font-weight: 600;
 
 }
+
+
+/* dark for input  */
+.dark-input{
+  background-color: #f000;
+  color: #fff;
+  border-color: #fff !important;
+}
+
 
 
 

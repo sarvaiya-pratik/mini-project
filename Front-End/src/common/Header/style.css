@@ -35,7 +35,7 @@ justify-content: center;
 
 >li{
     list-style: none;
-    padding: 1rem;
+    padding: 0.6rem;
 
     >a{
         text-decoration: none;
@@ -47,13 +47,17 @@ justify-content: center;
 
 header li{
     width: 6rem;
-    letter-spacing: 0.7px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 
 }
 
-header li:hover{
+header li a:hover{
     font-weight: 600;
+    border-bottom: 1px solid;
+   
 }
+
 
 /* SideBar */
 .sidebar{
@@ -68,12 +72,14 @@ header li:hover{
    transition: all 0.4s;
    line-height: 1;
 
+ 
    >.middle ,.right{
     flex-direction: column;
     align-items: center;
-   
+   text-transform: uppercase;
    }
  
+
 
 }
 

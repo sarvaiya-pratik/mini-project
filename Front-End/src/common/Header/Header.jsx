@@ -43,7 +43,7 @@ const Header = () => {
 
                     <div className='right'>
                         <li>
-                            <NavLink className={darkMod && "text-light"} to="/signin" >Sign in</NavLink>
+                            <NavLink className={darkMod && "text-light"} to="/login" >Login</NavLink>
                         </li>
 
                         <li>
@@ -79,7 +79,7 @@ const Header = () => {
 
                 <div className='right'>
                         <li>
-                        <NavLink onClick={()=>setMenu(!menu)}  className={darkMod && "text-light"} to="/signin" >Sign in</NavLink>
+                        <NavLink onClick={()=>setMenu(!menu)}  className={darkMod && "text-light"} to="/login" >Login</NavLink>
                         </li>
                    
                    <li>

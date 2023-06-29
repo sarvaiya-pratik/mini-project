@@ -1,5 +1,5 @@
 #signup{
-    height: 100vh;
+    height: 90vh;
     width: 100%;
     justify-content: center;
    align-items: center;
@@ -7,15 +7,35 @@
   display: flex;
     
   >form{
-    border: 1px solid black;
+    border: 1px solid var(--bg-primary);
     border-radius: 10px;
-    padding: 1rem;
+    padding: 1rem 2rem;
+    width: 40%;
+
   }
-    
+   
+}
+.lsbtn{
+    padding: 0.6rem 1rem;
+    background-color: rgb(175, 144, 65);
+    line-height: 1;
+    margin-top: 0.5rem;
+    box-shadow: inset 0 0 0 0 var(--bg-primary);
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: ease-out 0.5s;
+   border: none;
+
+}
+.lsbtn:hover{
+  box-shadow: inset 400px 0 0 0 var(--bg-primary);
 }
 .form-con{
     display: flex;
-    line-height: 4;
+   /* line-height: 4; */
+   margin-top: 2rem;
+    text-align: center;
+    justify-content: center;
    
 }
 .form-controls {
@@ -27,9 +47,36 @@
   display: block;
 }
 
+
 input:focus{
     outline: none;
     border-color: goldenrod;
 }
+.flname{
+  display: flex;
+  gap: 20px;
+}
 
+/* Responsive */
 
+@media  screen and (max-width:773px) {
+
+  #signup{
+  
+      >form{
+          width: 100%;
+          border: none;
+          padding: 1rem 2rem;
+
+          .flname{
+  
+            width: 100%;
+            flex-direction: column;
+            gap: 2rem;
+            
+          }
+       
+  }
+  }
+
+}
