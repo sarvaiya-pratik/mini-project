@@ -2,81 +2,96 @@ import React, { useContext, useEffect, useState } from 'react'
 import "./style.css"
 import { ThemeContext } from '../../Global-Component/ThemeProvide'
 import { BiMoon, BiSun, BiMenu } from "react-icons/bi"
-import { Navbar, Nav } from "react-bootstrap"
-import { LinkContainer } from "react-router-bootstrap"
+import { NavLink } from "react-router-dom"
+
 
 const Header = () => {
-  const { theme, setThemeMode } = useContext(ThemeContext);
-  const [darkMod, setDarkMod] = useState(theme)
-  const [menu, setMenu] = useState(false)
- 
+    const { theme, setThemeMode } = useContext(ThemeContext);
+    const [darkMod, setDarkMod] = useState(theme)
+    const [menu, setMenu] = useState(false)
 
-  useEffect(() => {
-    setThemeMode(darkMod);
-  })
-  return (
-    <>
-      <Navbar variant={darkMod ? "dark" : "light"} bg={darkMod ? "dark" : "light"}>
-        <div className="container">
-          <div className='nav-head'>
-            <Navbar.Brand href="#home">Mini Project</Navbar.Brand>
-          </div>
 
-          <div className="mobile-nav">
-            <div onClick={() => setDarkMod(!darkMod)} style={{ cursor: "pointer" }}>
-              {darkMod ? <BiSun fontSize={"2rem"} /> : <BiMoon fontSize={"2rem"} style={{ color: "Black" }} />}
+    useEffect(() => {
+        setThemeMode(darkMod);
+    })
+    return (
+        <>
+                <header id='mynav' className={darkMod?"bg-dark text-light":"bg-light text-dark"}>
+                    <div className='left'>
+                        <h4>Logo</h4>
+                    </div>
+
+                    <div className="mobile-nav">
+                        <div onClick={() => setDarkMod(!darkMod)} style={{ cursor: "pointer" }}>
+                            {darkMod ? <BiSun fontSize={"2rem"} /> : <BiMoon fontSize={"2rem"} style={{ color: "Black" }} />}
+                        </div>
+                        <div className={`${!darkMod && "text-dark"}`}><BiMenu fontSize={'2rem'} onClick={() => setMenu(!menu)} /></div>
+                    </div>
+
+
+                    <div className="middle">
+                        <li>
+                            <NavLink className={darkMod && "text-light"} to="/">Home</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className={darkMod && "text-light"} to="/about">About</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className={darkMod && "text-light"} to="/fature" >Fature</NavLink>
+                        </li>
+                    </div>
+
+                    <div className='right'>
+                        <li>
+                            <NavLink className={darkMod && "text-light"} to="/signin" >Sign in</NavLink>
+                        </li>
+
+                        <li>
+                            <NavLink className={darkMod && "text-light"} to="signup">Sign Up</NavLink>
+                        </li>
+
+                        <li onClick={() => setDarkMod(!darkMod)} style={{ cursor: "pointer" }}>
+                            {darkMod ? <BiSun fontSize={"2rem"} /> : <BiMoon fontSize={"2rem"} style={{ color: "Black" }} />}
+                        </li>
+                    </div>
+
+                </header>
+            
+
+            {/* Sidebar for mobile   */}
+
+            <div className={`sidebar ${menu && "showsidebar"} ${darkMod?"bg-dark-2 text-light":"bg-light-2 text-dark"}`}>
+                <div className="middle">
+                    <li>
+                        <NavLink onClick={()=>setMenu(!menu)} className={darkMod && "text-light"} to="/">Home</NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink onClick={()=>setMenu(!menu)} className={darkMod && "text-light"}to="/about" >About</NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink onClick={()=>setMenu(!menu)}  className={darkMod && "text-light"} to="fature" >Fature</NavLink>
+                    </li>
+                </div>
+
+                <hr />
+
+                <div className='right'>
+                        <li>
+                        <NavLink onClick={()=>setMenu(!menu)}  className={darkMod && "text-light"} to="/signin" >Sign in</NavLink>
+                        </li>
+                   
+                   <li>
+                        <NavLink onClick={()=>setMenu(!menu)} className={darkMod && "text-light"} to="signup">Sign Up</NavLink>
+                   </li>
+                   
+                </div>
+
             </div>
-            <div className={`${!darkMod && "text-dark"}`}><BiMenu fontSize={'2rem'} onClick={() => setMenu(!menu)} /></div>
-          </div>
 
-
-          <div className="nav">
-            <LinkContainer to="/">
-              <Nav.Link className={!darkMod && "text-black"}>Home</Nav.Link>
-            </LinkContainer>
-            <Nav.Link className={!darkMod && "text-black"}>About</Nav.Link>
-            <Nav.Link className={!darkMod && "text-black"}>Fature</Nav.Link>
-          </div>
-
-          <div className='nav gap-3'>
-            <LinkContainer to="/login">
-              <Nav.Link className={!darkMod && "text-black"}>Login</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/signup" className=''>
-              <Nav.Link className={!darkMod && "text-black"}>Sign Up</Nav.Link>
-            </LinkContainer>
-            <div onClick={() => setDarkMod(!darkMod)} style={{ cursor: "pointer" }}>
-              {darkMod ? <BiSun fontSize={"2rem"} /> : <BiMoon fontSize={"2rem"} style={{ color: "Black" }} />}
-            </div>
-          </div>
-
-        </div>
-      </Navbar>
-
-      {/* Sidebar for mobile   */}
-
-      <div className={`sidebar ${menu && "show-sidebar"} ${darkMod ? "bg-black text-light" : "bg-light-2 text-dark"}`}>
-        <div className="nav">
-          <LinkContainer to="/">
-            <Nav.Link className={!darkMod && "text-black"}>Home</Nav.Link>
-          </LinkContainer>
-          <Nav.Link className={!darkMod && "text-black"}>About</Nav.Link>
-          <Nav.Link className={!darkMod && "text-black"}>Fature</Nav.Link>
-        </div>
-
-        <div className='nav gap-3'>
-          <LinkContainer to="/login">
-            <Nav.Link className={!darkMod && "text-black"}>Login</Nav.Link>
-          </LinkContainer>
-          <LinkContainer to="/signup" className=''>
-            <Nav.Link className={!darkMod && "text-black"}>Sign Up</Nav.Link>
-          </LinkContainer>
-        </div>
-
-      </div>
-
-    </>
-  )
+        </>
+    )
 }
 
 export default Header
