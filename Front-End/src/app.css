@@ -54,4 +54,11 @@ body{
 
 
 
+.lblToggle{
+  color: #af9041;
+  text-decoration: none;
+}
+.lblToggle:hover{
+  color: var(--bg-primary);
+}
 

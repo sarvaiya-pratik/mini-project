@@ -16,6 +16,7 @@ const Header = () => {
     })
     return (
         <>
+        
                 <header id='mynav' className={darkMod?"bg-dark text-light":"bg-light text-dark"}>
                     <div className='left'>
                         <h4>Logo</h4>
@@ -51,7 +52,7 @@ const Header = () => {
                         </li>
 
                         <li onClick={() => setDarkMod(!darkMod)} style={{ cursor: "pointer" }}>
-                            {darkMod ? <BiSun fontSize={"2rem"} /> : <BiMoon fontSize={"2rem"} style={{ color: "Black" }} />}
+                            {darkMod ? <BiSun fontSize={"1.7rem"} /> : <BiMoon fontSize={"1.7rem"} style={{ color: "Black" }} />}
                         </li>
                     </div>
 
