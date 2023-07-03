@@ -38,8 +38,17 @@
    margin-top: 2rem;
     text-align: center;
     justify-content: center;
+
+
+   
    
 }
+.form-con p{
+  color: red;
+  text-align: start;
+  margin-bottom: -20px;
+}
+
 .form-controls {
     border: 1px solid black;
   border-top: none;

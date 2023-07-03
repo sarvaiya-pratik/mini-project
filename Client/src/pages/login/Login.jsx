@@ -10,6 +10,7 @@ const [user,setUser] = useState({
   password:""
 })
 
+
   const handleSubmit = (e) =>{
     e.preventDefault();
     console.log(user)

@@ -7,7 +7,7 @@ const ThemeProvide = ({children}) => {
 
     const [theme,setTheme] = useState(JSON.parse(localStorage.getItem('theme')) || false)
 
-    console.log(theme)
+  
     useEffect(()=>{
         localStorage.setItem('theme',JSON.stringify(theme))
     },[theme])
